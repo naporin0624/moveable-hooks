@@ -2,12 +2,12 @@
   "name": "moveable-hooks",
   "version": "0.1.0",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
