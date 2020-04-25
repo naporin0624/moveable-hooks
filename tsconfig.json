@@ -16,12 +16,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
     "jsx": "react",
     "baseUrl": ".",
-    "paths": {
-      "@": ["./src/*"] 
-    },
     "rootDirs": ["src", "stories"],
     "outDir": "lib"
   },
@@ -30,5 +26,6 @@
     "src/**/*.ts",
     "stories/**/*.ts",
     "stories/**/*.tsx"
-  ]
+  ],
+  "exclude": ["node_modules", "lib", ".storybook"]
 }

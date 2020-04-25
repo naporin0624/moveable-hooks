@@ -1,16 +1,21 @@
-import { configure } from '@storybook/react';
-import { setConsoleOptions } from '@storybook/addon-console';
+import {configure} from '@storybook/react';
+import {setOptions} from '@storybook/addon-options';
 
-setConsoleOptions({
-  panelExclude: []
+setOptions({
+  sortStoriesByKind: false,
+  showStoriesPanel: true,
+  showAddonPanel: true,
+  showSearchBox: false,
+  addonPanelInRight: true,
+  hierarchySeparator: /\//,
+  hierarchyRootSeparator: /\|/,
+  sidebarAnimations: false,
 });
 
-function loadStories() {
-  let req = require.context("../stories", true, /.(tsx|js)$/);
-  req.keys().forEach(filename => req(filename));
+const req = require.context('../stories/', true, /\.story\.tsx?$/);
 
-  req = require.context("../stories", true, /.stories.(tsx|js)$/);
-  req.keys().forEach(filename => req(filename));
-}
+const loadStories = () => {
+  req.keys().forEach((filename) => req(filename));
+};
 
 configure(loadStories, module);

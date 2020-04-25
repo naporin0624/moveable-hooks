@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.json",
+  "exclude": ["stories", "test"],
   "compilerOptions": {
-    "rootDir": "src/hooks",
-    "outDir": "lib"
+    "rootDir": "src",
+    "outDir": "lib",
+    "declaration": true
   }
 }

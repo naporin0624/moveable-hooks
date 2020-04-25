@@ -1,17 +1,52 @@
+import React, { useRef } from "react";
+import { useDrag } from "../src";
 import styled from "styled-components";
 
-export const Container = styled.div`
+import { storiesOf } from "@storybook/react";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
+import ShowDocs from "./util/ShowDocs";
+
+type Props = {
+  disabled?: boolean;
+};
+
+function Demo(props: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const container = document.getElementById("custom-container")!;
+  const pos = useDrag({ ref, container, disabled: props.disabled });
+  const tRef = useRef<HTMLParagraphElement>(null);
+  useDrag({ ref: tRef, container });
+
+  return (
+    <Container id="custom-container">
+      <Text ref={tRef}>{`x: ${pos.x}, y: ${pos.y}`}</Text>
+      <Card ref={ref} style={{ top: "30px", left: "30px" }}>
+        click!
+      </Card>
+    </Container>
+  );
+}
+
+const components = storiesOf("hooks", module);
+
+components
+  .addDecorator(withKnobs)
+  .add("Docs", () => <ShowDocs md={require("../docs/useDrag.md")} />)
+  .add("Demo", () => <Demo disabled={boolean("disabled", false)} />);
+
+const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background: transparent;
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   margin: 0;
   padding: 0;
 `;
 
-export const Card = styled.div`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
