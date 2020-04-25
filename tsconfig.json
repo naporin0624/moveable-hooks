@@ -15,11 +15,16 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@": ["./src/*"] 
+    }
   },
   "include": [
-    "src"
+    "src/**/*.tsx",
+    "src/**/*.ts",
   ]
 }
