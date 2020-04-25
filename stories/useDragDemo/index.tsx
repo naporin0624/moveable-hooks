@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useDrag } from "../../useDrag";
+import { useDrag } from "../../src/hooks/useDrag";
 
 import { Container, Card, Text } from "./styles";
 

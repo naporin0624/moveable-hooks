@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = ({
   config
 }) => {
@@ -20,10 +18,6 @@ module.exports = ({
     ]
   });
   config.resolve.extensions.push(".ts", ".tsx");
-  config.resolve.alias = {
-    ...(config.resolve.alias ? config.resolve.alias : {}),
-    "@": path.join(process.cwd(), "../src/")
-  }
 
   return config;
 };

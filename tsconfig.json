@@ -21,10 +21,14 @@
     "baseUrl": ".",
     "paths": {
       "@": ["./src/*"] 
-    }
+    },
+    "rootDirs": ["src", "stories"],
+    "outDir": "lib"
   },
   "include": [
     "src/**/*.tsx",
     "src/**/*.ts",
+    "stories/**/*.ts",
+    "stories/**/*.tsx"
   ]
 }
